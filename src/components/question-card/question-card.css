@@ -1,0 +1,118 @@
+.question-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.question-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.question-counter {
+    font-weight: 600;
+    color: #495057;
+    font-size: 1rem;
+}
+
+.timer {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #28a745;
+    padding: 0.25rem 0.75rem;
+    background-color: #d4edda;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.timer-low {
+    color: #dc3545;
+    background-color: #f8d7da;
+    animation: pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.img-wrapper {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.question-title {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #333;
+    max-width: 600px;
+    line-height: 1.4;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+    max-width: 500px;
+    min-height: 150px;
+}
+
+.options-loading {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border-radius: 12px;
+    border: 2px dashed #ff9800;
+}
+
+.options-loading p {
+    font-size: 1.1rem;
+    color: #e65100;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .question-title {
+        font-size: 1.2rem;
+    }
+
+    .question-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

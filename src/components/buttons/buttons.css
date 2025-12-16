@@ -1,0 +1,48 @@
+.btn {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn--primary {
+    background-color: orangered;
+    color: white;
+}
+
+.btn--primary:hover {
+    background-color: #ff6347;
+    transform: translateY(-2px);
+}
+
+.btn--primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 69, 0, 0.3);
+}
+
+.btn--primary-lg {
+    padding: 1rem 3rem;
+    font-size: 1.2rem;
+}
+
+.btn--option {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+}
+
+.btn--option:hover {
+    border-color: orangered;
+    background-color: #fff5f0;
+    transform: translateY(-2px);
+}
+
+.btn--option:active {
+    transform: translateY(0);
+}
