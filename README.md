@@ -2,6 +2,8 @@
 
 React ve TypeScript ile geliştirilmiş interaktif bir bilgi yarışması uygulaması.
 
+🔗 **[Canlı Demo](https://glittering-lokum-2a1538.netlify.app/)**
+
 <p>
   <img src="https://img.shields.io/badge/React-19.2.0-61DAFB?logo=react" alt="React" />
   <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript" alt="TypeScript" />
