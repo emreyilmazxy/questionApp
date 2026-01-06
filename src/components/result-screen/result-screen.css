@@ -98,3 +98,99 @@
         font-size: 1rem;
     }
 }
+
+/* Questions Review Section */
+.questions-review {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 1rem;
+}
+
+.review-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.question-review-item {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid;
+}
+
+.question-review-item--correct {
+    border-left-color: #28a745;
+    background-color: #f8fff9;
+}
+
+.question-review-item--wrong {
+    border-left-color: #dc3545;
+    background-color: #fff8f8;
+}
+
+.question-review-item--empty {
+    border-left-color: #ffc107;
+    background-color: #fffdf5;
+}
+
+.question-review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.question-number {
+    font-weight: bold;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.question-status {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.question-text {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.answer-info {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.user-answer {
+    margin-bottom: 0.25rem;
+}
+
+.correct-answer {
+    color: #28a745;
+}
+
+/* Mobile Responsive for Questions Review */
+@media (max-width: 480px) {
+    .questions-review {
+        max-width: 100%;
+    }
+
+    .question-review-item {
+        padding: 0.75rem 1rem;
+    }
+
+    .question-text {
+        font-size: 0.9rem;
+    }
+
+    .review-title {
+        font-size: 1.2rem;
+    }
+}

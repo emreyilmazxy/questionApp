@@ -9,6 +9,12 @@ import { questions } from './questions';
 const QUESTION_TIME = 30;
 const OPTIONS_DELAY = 4;
 
+export type UserAnswer = {
+  questionIndex: number;
+  userAnswer: string | null;
+  isCorrect: boolean;
+}
+
 function App() {
   const [started, setStarted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -18,6 +24,7 @@ function App() {
   const [empty, setEmpty] = useState(0);
   const [timeLeft, setTimeLeft] = useState(QUESTION_TIME);
   const [optionsVisible, setOptionsVisible] = useState(false);
+  const [userAnswers, setUserAnswers] = useState<UserAnswer[]>([]);
 
   // Refs for timer management
   const intervalRef = useRef<number | null>(null);
@@ -68,10 +75,15 @@ function App() {
         // Time's up - count as empty
         answeredRef.current = true;
         setEmpty(prev => prev + 1);
+        setUserAnswers(prev => [...prev, {
+          questionIndex: currentQuestion,
+          userAnswer: null,
+          isCorrect: false
+        }]);
         goToNextQuestion();
       }
     }, 1000);
-  }, [clearTimers, goToNextQuestion]);
+  }, [clearTimers, goToNextQuestion, currentQuestion]);
 
   // Start timer when question changes or test starts
   useEffect(() => {
@@ -92,12 +104,20 @@ function App() {
     if (answeredRef.current) return; // Prevent double answers
     answeredRef.current = true;
 
+    const isCorrect = answer === questions[currentQuestion].answer;
+
     // Check answer
-    if (answer === questions[currentQuestion].answer) {
+    if (isCorrect) {
       setCorrect(prev => prev + 1);
     } else {
       setWrong(prev => prev + 1);
     }
+
+    setUserAnswers(prev => [...prev, {
+      questionIndex: currentQuestion,
+      userAnswer: answer,
+      isCorrect
+    }]);
 
     goToNextQuestion();
   };
@@ -112,6 +132,7 @@ function App() {
     setEmpty(0);
     setTimeLeft(QUESTION_TIME);
     setOptionsVisible(false);
+    setUserAnswers([]);
   };
 
   return (
@@ -140,6 +161,8 @@ function App() {
           empty={empty}
           total={questions.length}
           onRestart={handleRestart}
+          questions={questions}
+          userAnswers={userAnswers}
         />
       )}
     </>
